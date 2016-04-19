@@ -1,0 +1,38 @@
+#5
+> label2 <- c("Human", "Animal", "Object", "Unknown")
+> truth2 <- factor(rep(label2, times=c(100, 100, 100, 100)), levels = rev(label2))
+> pred2 <- factor(c(rep(label2, times=c(100, 0, 0, 0)), rep(label2, times=c(0, 90, 5, 5)), rep(label2, times = c(0, 10, 80, 10)), rep(label2, times=c(0, 0, 15, 85))), levels = rev(label2) )
+> conftable2 <- table(truth2, pred2)
+> conftable2
+
+#6
+a. 0.8875
+b. 1.00
+c. 0.8667
+
+#7
+df <- data.frame(csvData[-1, -1][1], csvData[-1, -1][2], csvData[-1, -1][3], csvData[-1, -1][4], csvData[-1, -1][5], csvData[-1, -1][6], csvData[-1, -1][7], csvData[-1, -1][8])
+
+#9
+0.265
+a. balanced accuracy = 0.52571; precision = 0.17000
+b. balanced accuracy = 0.7143; precision = 0.5000
+
+#10
+accuracy = 0.4333
+
+code:
+labels = c("2go", "jollibee",	"meralco");
+truth <- factor(rep(labels, times=c(100, 100, 100)), levels=rev(labels));
+
+pred <- factor(c(rep(labels, times = c(5,0,13)),
+                   rep(labels, times = c(0,1,1)),
+                   rep(labels, times = c(18,23,6)),
+                   rep(labels, times = c(2,14,19)),
+                   rep(labels, times = c(0,50,6)),
+                   rep(labels, times = c(45,0,0)),
+                   rep(labels, times = c(15,5,18)),
+                   rep(labels, times = c(15,7,37))
+                   ), levels = rev(labels));
+conftable <- table(truth, pred);
+confusionMatrix(conftable);
